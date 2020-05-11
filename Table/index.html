@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Table V01</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico" />
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<!--===============================================================================================-->
+</head>
+<style>
+	/* width */
+	::-webkit-scrollbar {
+		width: 10px;
+	}
+
+	/* Track */
+	::-webkit-scrollbar-track {
+		background: #f1f1f1;
+	}
+
+	/* Handle */
+	::-webkit-scrollbar-thumb {
+		background: #888;
+	}
+
+	/* Handle on hover */
+	::-webkit-scrollbar-thumb:hover {
+		background: #555;
+	}
+
+	#container {
+		background-color: #f1f1f10c;
+	}
+</style>
+</head>
+
+<body>
+
+	<div class="limiter">
+		<div class="container-table100">
+			<div class="wrap-table100">
+				<div class="table100">
+					<table class="table table-stripped" id="usersTable">
+						<thead>
+							<tr class="table100-head">
+								<th class="column1" onclick="sortTable(0)">Country</th>
+								<th class="column2" onclick="sortTable(1)">Cases</th>
+								<th class="column3">Deaths</th>
+								<th class="column4">Today Cases</th>
+								<th class="column5">critical</th>
+								<th class="column6">Recovered</th>
+							</tr>
+						</thead>
+						<tbody id="data">
+
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+	<script src="https://www.w3schools.com/lib/w3.js"></script>
+</body>
+<script>
+
+	fetch('https://api.coronastatistics.live/countries').then(
+		res => {
+			res.json().then(
+				data => {
+					console.log(data);
+
+					if (data.length > 0) {
+						var temp = "";
+
+						data.forEach((u) => {
+							temp += "<tr>";
+							temp += "<td>" + u.country + "</td>";
+							temp += "<td>" + u.cases + "</td>";
+							temp += "<td>" + u.deaths + "</td>";
+							temp += "<td>" + u.todayCases + "</td>";
+							temp += "<td>" + u.critical + "</td>";
+							temp += "<td>" + u.recovered + "</td></tr>";
+						})
+						document.getElementById("data").innerHTML = temp;
+					}
+
+				}
+			)
+		})
+
+	let tid = "#usersTable";
+	let headers = document.querySelectorAll(tid + " th");
+
+	// Sort the table element when clicking on the table headers
+	headers.forEach(function (element, i) {
+		element.addEventListener("click", function () {
+			w3.sortHTML(tid, ".item", "td:nth-child(" + (i + 1) + ")");
+		});
+	});
+</script>
+
+<script>
+	function sortTable(n) {
+		var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+		table = document.getElementById("usersTable");
+		switching = true;
+		//Set the sorting direction to ascending:
+		dir = "asc";
+		/*Make a loop that will continue until
+		no switching has been done:*/
+		while (switching) {
+			//start by saying: no switching is done:
+			switching = false;
+			rows = table.rows;
+			/*Loop through all table rows (except the
+			first, which contains table headers):*/
+			for (i = 1; i < (rows.length - 1); i++) {
+				//start by saying there should be no switching:
+				shouldSwitch = false;
+				/*Get the two elements you want to compare,
+				one from current row and one from the next:*/
+				x = rows[i].getElementsByTagName("TD")[n];
+				y = rows[i + 1].getElementsByTagName("TD")[n];
+				/*check if the two rows should switch place,
+				based on the direction, asc or desc:*/
+				if (dir == "asc") {
+					if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+						//if so, mark as a switch and break the loop:
+						shouldSwitch = true;
+						break;
+					}
+				} else if (dir == "desc") {
+					if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+						//if so, mark as a switch and break the loop:
+						shouldSwitch = true;
+						break;
+					}
+				}
+			}
+			if (shouldSwitch) {
+				/*If a switch has been marked, make the switch
+				and mark that a switch has been done:*/
+				rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+				switching = true;
+				//Each time a switch is done, increase this count by 1:
+				switchcount++;
+			} else {
+				/*If no switching has been done AND the direction is "asc",
+				set the direction to "desc" and run the while loop again.*/
+				if (switchcount == 0 && dir == "asc") {
+					dir = "desc";
+					switching = true;
+				}
+			}
+		}
+	}
+</script>
+
+
+</html>

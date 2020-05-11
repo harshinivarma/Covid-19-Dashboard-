@@ -1,0 +1,93 @@
+:root {
+	font-size: 13px;
+}
+
+body {
+	font-family: Didot, "Didot LT STD", "Bodoni MT", "ltc-bodoni-175", "Hoefler Text", Garamond, "Times New Roman", serif;
+	
+	color: #57585c;
+	color: var(--color-text);
+	background-color: #000;
+	
+}
+
+/* Color schemes */
+
+
+
+
+
+
+a {
+	text-decoration: none;
+	color: var(--color-link);
+	outline: none;
+	margin: 0;
+}
+
+
+
+
+
+#frame__title {
+	font-size: 1rem;
+	font-weight: normal;
+	margin: 0;
+	
+}
+
+.frame__demo--current,
+.frame__demo--current:hover {
+	text-decoration: underline;
+	color: var(--color-link);
+	margin: 0;
+}
+
+
+
+
+
+
+@media screen and (min-width: 12em) {
+	.message {
+		display: none;
+		margin: 0;
+	}
+	.frame {
+		position: fixed;
+		text-align: left;
+		z-index: 10000;
+		margin: 0;
+		top: 0;
+		left: 0;
+		display: grid;
+		align-content: space-between;
+		width: 100%;
+		max-width: none;
+		height: 100vh;
+		padding: 2rem 2.25rem;
+		pointer-events: none;
+		grid-template-columns: 15% 25% 15%;
+		grid-template-rows: auto auto auto;
+		grid-template-areas: 'title title ... '
+							
+							;
+	}
+	.frame__title-wrap {
+		grid-area: title;
+		display: flex;
+		text-decoration: none;
+    	color: var(--color-link);
+		outline: none;
+		padding-left: 85%;
+
+	}
+	.frame__title {
+		margin: 0;
+	}
+
+	.frame a {
+		pointer-events: auto;
+	}
+	
+}

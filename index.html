@@ -1,0 +1,391 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<meta charset="utf-8" />
+<meta http-equiv="refresh" content="300" />
+<meta property="og:description"
+  content="Live Updates, Statistics and News of Coronavirus from around the Globe, COVID-19 affected areas, along with in-depth details of Infections, Deaths, Recoveries and Critical Cases, Stay updated with latest Corona Outbreak.">
+
+<head>
+  <title style="text-align: center; user-select: none; padding-top: 20px;">Covid-19 Dashboard</title>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+  <script src="index.js"></script>
+  <script src="renderer.js"></script>
+  <script src="js/noise.min.js"></script>
+  <script src="js/util.js"></script>
+  <script src="js/pipeline.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <!-- here external scripts css include start -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+  <script src="index.js"></script>
+  <script src="https://code.jquery.com/jquery-1.7.2.js"></script>
+  <!--here external scripts css include end-->
+
+  <link rel="stylesheet" type="text/css" href="python/base.css" />
+  <link rel="stylesheet" type="text/css" href="python/demo5.css" />
+  <link rel="stylesheet" href="python/style.css" />
+
+
+</head>
+
+<body style="user-select: none; padding-top: 20px;">
+
+
+
+
+  <div class="content-start">
+    <div id="popupmain" style="display: none;">
+
+    </div>
+    <style>
+      #sta {
+        color: #f1f1f1;
+        margin-left: 1000px;
+
+      }
+    </style>
+
+    <h6 id="sta">
+      Application is : <u id="status"></u>
+    </h6>
+    <!-- ONLINE AND OFFLINE STATUS START -->
+    <script>
+      const setStatus = status => {
+        const statusNode = document.getElementById('status')
+        statusNode.innerText = status ? 'online' : 'offline'
+      }
+
+      setStatus(navigator.onLine)
+
+      window.addEventListener('online', e => {
+        setStatus(true)
+      })
+      window.addEventListener('Offline', e => {
+        setStatus(false)
+      })
+
+
+    </script>
+
+    <!-- ONLINE AND OFFLINE STATUS START -->
+
+
+
+
+    <!-- nOTOFICATION START -->
+    <script>
+
+
+      setTimeout(() => {
+        let notification = new Notification('CORONA DASHBOARD', {
+          body: 'Welcome To Covid-19 Dashboard!      Count Status Updated'
+        })
+
+
+      }, 2000)
+
+    </script>
+
+
+
+
+
+    <section>
+
+      <h1 id="dahs">
+        Covid-19 indian Dashboard
+      </h1>
+      <div style="font-size: 1px; margin-top: 120px; padding-left: 10px;">
+        &nbsp;&nbsp;&nbsp; <p style="font-size: x-small;"><span style="color:rgb(206, 241, 11)">Last Update :</span> 5
+          minutes ago
+        </p>
+      </div>
+      <h1 id="dahss">
+        <a href="www.google.com"></a> Developed by Harshini
+      </h1>
+      <!-- <div class="blank" style="z-index:100000; position: absolute; left: 60px; padding-left: 200px;">
+    <button class="getbtn"><a href="D:/power%20apps%20by%20me/python/Table/index.html" target="blank"> World
+        data</button>
+  </div> -->
+      <div class="chartz">
+
+      </div>
+      </svg>
+    </section>
+    <div class="frame">
+      <div class="frame__title-wrap">
+
+
+        <a _ngcontent-pxi-c16="" routerlink="/" class="logo text-center"><span _ngcontent-pxi-c16=""
+            class="logo-lg"><img _ngcontent-pxi-c16=""></span><span _ngcontent-pxi-c16="" class="logo-sm"><img
+              _ngcontent-pxi-c16="" src="assets/images/logo-light.png" alt="" height="40"></span></a>
+        <br />&nbsp;&nbsp;&nbsp;
+        <a _ngcontent-pxi-c16="" routerlink="/" class="logo text-center"><span _ngcontent-pxi-c16=""
+            class="logo-lg"><img _ngcontent-pxi-c16=""></span><span _ngcontent-pxi-c16="" class="logo-sm"><img
+              _ngcontent-pxi-c16="" src="assets/images/flag.png" alt="" height="50"></span></a>
+
+      </div>
+    </div>
+    <!-- Country wise start  -->
+
+    <div style=" z-index:100000; position: absolute; left: 60px; padding-top: 130px; margin-top: 300px;" id="style-5">
+      <iframe src="file:///D:/power%20apps%20by%20me/Covid-19/Table/index.html" width="1030" height="400"
+        style="border:none;" class="force-overflow"></iframe>
+
+    </div>
+    <!-- Country wise stop  -->
+
+
+
+    <!-- Scroll bar deisgn start  -->
+
+    <style>
+      /* width */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      /* Track */
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: #888;
+      }
+
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+    </style>
+    <!-- Scroll bar deisgn Ends  -->
+    </head>
+
+
+
+
+    <!-- /* time part starts here */ -->
+    <style>
+      .countup {
+        text-align: center;
+        margin-bottom: 0px;
+        z-index: auto;
+      }
+
+      .countup .timeel {
+        display: inline-block;
+        padding: 10px;
+        background: #151515;
+        margin: 0;
+        margin-top: 11px;
+        color: white;
+        min-width: 2.6rem;
+        margin-left: 22px;
+        border-radius: 10px 0 0 10px;
+        z-index: auto;
+      }
+
+      .countup span[class*="timeRef"] {
+        border-radius: 0 10px 10px 0;
+        margin-left: 0;
+        background: #e8c152;
+        color: black;
+        z-index: auto;
+      }
+
+      #pand {
+        transform: translateY(25px);
+        margin-top: 10px;
+        z-index: 20000;
+      }
+    </style>
+    <div id="graphs">
+      <div id="map" style="z-index:10000; position: fixed; "></div>
+      <div class="countup" id="countup1" style="z-index:100000; position: absolute; left: 80px; padding-left: 290px;">
+        <p class="pand" style="margin-top: 310px;">Pandemic Started</p>
+        <span class="timeel days">00</span>
+        <span class="timeel timeRefDays">days</span>
+        <span class="timeel hours">00</span>
+        <span class="timeel timeRefHours">hours</span>
+        <span class="timeel minutes">00</span>
+        <span class="timeel timeRefMinutes">minutes</span>
+        <span class="timeel seconds">00</span>
+        <span class="timeel timeRefSeconds">seconds</span>
+      </div>
+    </div>
+  </div>
+  <script>
+
+    window.onload = function () {
+      // Month Day, Year Hour:Minute:Second, id-of-element-container
+      countUpFromTime("December 1, 2019 4:00:00", 'countup1'); // ****** Change this line!
+    };
+    function countUpFromTime(countFrom, id) {
+      countFrom = new Date(countFrom).getTime();
+      var now = new Date(),
+        countFrom = new Date(countFrom),
+        timeDifference = (now - countFrom);
+
+      var secondsInADay = 60 * 60 * 1000 * 24,
+        secondsInAHour = 60 * 60 * 1000;
+
+      days = Math.floor(timeDifference / (secondsInADay) * 1);
+      hours = Math.floor((timeDifference % (secondsInADay)) / (secondsInAHour) * 1);
+      mins = Math.floor(((timeDifference % (secondsInADay)) % (secondsInAHour)) / (60 * 1000) * 1);
+      secs = Math.floor((((timeDifference % (secondsInADay)) % (secondsInAHour)) % (60 * 1000)) / 1000 * 1);
+
+      var idEl = document.getElementById(id);
+      idEl.getElementsByClassName('days')[0].innerHTML = days;
+      idEl.getElementsByClassName('hours')[0].innerHTML = hours;
+      idEl.getElementsByClassName('minutes')[0].innerHTML = mins;
+      idEl.getElementsByClassName('seconds')[0].innerHTML = secs;
+
+      clearTimeout(countUpFromTime.interval);
+      countUpFromTime.interval = setTimeout(function () { countUpFromTime(countFrom, id); }, 1000);
+    }
+  </script>
+
+
+  <!-- /* time part finish here */ -->
+
+  <div style=" z-index:100000; position: absolute; left: 10px; padding-top: 130px; margin-top: 900px;" id="style-5">
+    <iframe src="file:///D:/power%20apps%20by%20me/Covid-19/Table/table.html" width="984px" height="1000px"
+      style="border:none;" class="force-overflow"></iframe>
+
+  </div>
+
+
+
+  <div id="world" class="world"></div>
+  </div>
+  <div id="result" class="w3-containermain"></div>
+
+
+
+</body>
+
+<div id="love" style="color: white;">
+
+</div>
+
+<style>
+  .footer {
+    position: fixed;
+    left: 20px;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(59, 59, 59, 0.075);
+    color: white;
+    text-align: left;
+    z-index: 10000;
+  }
+</style>
+
+
+</div>
+<div class="footer" style="padding-bottom: 2px; position: fixed; z-index: 50000;">
+  2020 © Crafted with <img src="https://img.icons8.com/nolan/64/half-heart.png"
+    style="height: 30px; width: 30px; padding-bottom: 0px; padding-top: 3px; margin-top: 3px;" />
+  by Chandra Sekhar
+</div>
+
+
+<!-- india wise data ends -->
+<script>
+  getindia();
+  /*********************************************
+ *          Using jsonplaceholder API         *
+ * ********************************************/
+  function getindia() {
+
+    fetch('https://api.coronastatistics.live/countries/india')
+      .then((res) => { return res.json() })
+      .then((data) => {
+        const { country, cases, todayCases, deaths, active, recovered, critical } = data
+        data +=
+          `<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <style>
+          div {
+  opacity: 1.50;
+}
+p {
+  color: white;
+}</style>   
+        <div class="w3-card-4" style="
+          div {
+  opacity: 0.10" width: 30px;>
+            <header class="w3-container w3-blue">
+            <h3>Country Name: ${country}</h3>
+            </header><div class="w3-container">
+            <p>Total Cases : ${cases}</p>
+            <p>Active : ${active}</p>
+            <p>TodayCases : ${todayCases}</p>
+            <p>Deaths :${deaths}</p>
+            <p>Recovered : ${recovered}</p>
+           
+          </div>
+       </div>
+    </div>
+   `
+          ;
+        document.getElementById('result').innerHTML = data;
+      });
+
+    setInterval((getindia) => {
+
+    }, 2000);
+
+
+  }
+
+
+</script>
+<!-- india wise data ends -->
+
+<!-- country wise data ends -->
+<script>
+
+
+  fetch('https://coronavirus-19-api.herokuapp.com/all')
+
+    .then((res) => { return res.json() })
+    .then((data) => {
+      const { cases, deaths, recovered } = data
+      result +=
+        `<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <style>
+          div {
+  opacity: 1.50;
+}
+p {
+  color: white;
+}</style>   
+      
+            <header class="w3-container w3-blue">
+            <h3 style="color: white;">World wide</h3>
+            </header><div class="w3-container">
+            <p></p>
+            <p>Total Cases : ${cases}</p>
+            <p>Total Cases : ${deaths}</p>
+            <p>Recovered : ${recovered}</p>
+           
+            
+          </div>
+       </div>
+    </div>
+   `
+        ;
+      document.getElementById('world').innerHTML = result;
+
+    })
+
+
+
+</script>
+
+
+</html>

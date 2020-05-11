@@ -1,0 +1,5 @@
+directories:
+  output: dist
+  buildResources: build
+appId: com.chandraharshini.covid19
+electronVersion: 8.2.3

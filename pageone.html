@@ -1,0 +1,181 @@
+<div>
+    <style>
+        .red {
+            color: red
+        }
+
+        .orange {
+            color: orange
+        }
+
+        .green {
+            color: green
+        }
+    </style>
+    <!-- ie. if value is less than 20 == red 
+    if value is between 20 - 60 == orange , 
+    if value is greater than 60 to 100 == green. -->
+
+    <p data-color="19">Lorem 19</p>
+    <p data-color="19">Lorem 25</p>
+    <p data-color="55">Lorem 55</p>
+    <p data-color="60">Lorem 60</p>
+    <p data-color="61">Lorem 61</p>
+    <p data-color="100">Lorem 100</p>
+
+</div>
+<script>
+
+    $(document).ready(function () {
+
+        var mc = {
+            '0-19': 'red',
+            '20-59': 'orange',
+            '60-100': 'green'
+        };
+
+        function between(x, min, max) {
+            return x >= min && x <= max;
+        }
+
+
+
+        var dc;
+        var first;
+        var second;
+        var th;
+
+        $('p').each(function (index) {
+
+            th = $(this);
+
+            dc = parseInt($(this).attr('data-color'), 10);
+
+
+            $.each(mc, function (name, value) {
+
+
+                first = parseInt(name.split('-')[0], 10);
+                second = parseInt(name.split('-')[1], 10);
+
+                console.log(between(dc, first, second));
+
+                if (between(dc, first, second)) {
+                    th.addClass(value);
+                }
+
+
+
+
+            }
+            );
+        })
+    })
+</script>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                $("p").text("Hello world!");
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+    <button>Set text content for all p elements</button>
+
+    <p>This is a paragraph.</p>
+    <p>This is another paragraph.</p>
+
+</body>
+
+</html>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#myInput").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+
+<body>
+
+    <input type="submit" value="GET DATA FROM API" id="getAPI" class="w3-btn w3-blue w3-margin">
+
+    <h2>Filterable Table</h2>
+    <p>Type something in the input field to search the table for first names, last names or emails:</p>
+    <input id="myInput" type="text" placeholder="Search..">
+    <br><br>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody id="myTable">
+            <tr>
+                <td>John</td>
+                <td>Doe</td>
+                <td>john@example.com</td>
+            </tr>
+            <tr>
+                <td>Mary</td>
+                <td>Moe</td>
+                <td>mary@mail.com</td>
+            </tr>
+            <tr>
+                <td>July</td>
+                <td>Dooley</td>
+                <td>july@greatstuff.com</td>
+            </tr>
+            <tr>
+                <td>Anja</td>
+                <td>Ravendale</td>
+                <td>a_r@test.com</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>Note that we start the search in tbody, to prevent filtering the table headers.</p>
+
+</body>
+
+</html>
