@@ -112,7 +112,7 @@ app.on("ready", () => {
   //creatw windows
   createWindow();
 
-  // setTimeout(updater.check, 2000);
+  setTimeout(updater.check, 2000);
 });
 
 // Quit when all windows are closed.

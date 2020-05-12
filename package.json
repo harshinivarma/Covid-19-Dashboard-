@@ -4,7 +4,11 @@
   "description": "Covid-19 is a Application Dashboard",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "win": "electron-builder -w",
+    "build": "electron-builder -w",
+    "make-cert": "electron-builder -p chandraharshini",
+    "publish": "electron-builder build -wl -p onTagOrDraft"
   },
   "keywords": [],
   "author": "ChandraHarshini",
@@ -18,7 +22,11 @@
     "appId": "com.chandraharshini.covid19"
   },
   "win": {
-    "category": "public.app-category.information"
+    "category": "public.app-category.information",
+    "publish": [
+      "github"
+    ],
+    "publisherName": "ChandraHarshini"
   },
   "dependencies": {
     "chart.js": "^2.9.3",

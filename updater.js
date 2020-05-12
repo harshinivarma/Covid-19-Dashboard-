@@ -1,5 +1,5 @@
 //modules
-const { dialog } = require("electron");
+const { dialog, BrowserWindow, ipcMain } = require("electron");
 const { autoUpdater } = require("electron-updater");
 autoUpdater.logger = require("electron-log");
 autoUpdater.logger.transports.file.level = "info";
@@ -34,10 +34,55 @@ exports.check = () => {
         autoUpdater.doDownloadUpdate();
 
         //download progress
+        let progressWin = new BrowserWindow({
+          width: 350,
+          height: 35,
+          useContentSize: true,
+          autoHideMenuBar: true,
+          maximizable: false,
+          fullscreen: false,
+          fullscreenable: false,
+          resizable: false,
+        });
+
+        //load pogress
+        progressWin.loadURL("file://${__dirname}/assets/progress.html");
+
+        // handle
+
+        progressWin.on("closed", () => {
+          progressWin = null;
+        });
+
+        //listten for progress procewad
+
+        ipcMain.on("download-progress-request", (e) => {
+          e.returnValue = downloadProgress;
+        });
 
         autoUpdater.on("download-progress", (d) => {
           downloadProgress = d.percent;
           autoUpdater.logger.info(downloadProgress);
+        });
+
+        // listen downlod
+        autoUpdater.on("update-download", () => {
+          //close progress window
+          if (progressWin) progressWin.close();
+
+          //prompt to quite
+          dialog.showMessageBox(
+            {
+              type: "info",
+              message:
+                "A new version of Covid-19 is ready. Quit and install now?",
+              buttons: ["Yes", "Later"],
+            },
+            (buttonIndex) => {
+              //update if yes
+              if (buttonIndex === 0) autoUpdater.quitAndInstall();
+            }
+          );
         });
       }
     );
