@@ -6,7 +6,7 @@
 ![GitHub Download Count](https://img.shields.io/github/issues/spiniza/cyber-proxy)
 ![vulnerabilities](https://img.shields.io/snyk/vulnerabilities/github/spiniza/cyber-proxy)
 ![Repo-size](https://img.shields.io/github/repo-size/harshinivarma/Covid-19-Dashboard-)
-[![license](https://img.shields.io/github/license/spiniza/cyber-proxy.svg?style=flat-square)](https://github.com/spiniza/cyber-proxy/blob/master/LICENSE)
+[![license](https://img.shields.io/github/license/harshinivarma/Covid-19-Dashboard-.svg?style=flat-square)](https://github.com/spiniza/cyber-proxy/blob/master/LICENSE)
 
 
 ## Documentation
