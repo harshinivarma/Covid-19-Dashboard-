@@ -22,4 +22,4 @@
 
 ## License
 
-[MIT](https://github.com/spiniza/cyber-proxy/blob/master/LICENSE.md)
+[CC0 1.0](https://github.com/harshinivarma/Covid-19-Dashboard-/blob/master/LICENSE)
