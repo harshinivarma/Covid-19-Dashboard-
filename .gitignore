@@ -1,9 +1,6 @@
-.DS_Store
-<<<<<<< HEAD
 node_modules/
 dist/
 private/
 =======
-private/
-dist/
+
 >>>>>>> bfef31044037a3982dd988598c0cd476b6fece13
