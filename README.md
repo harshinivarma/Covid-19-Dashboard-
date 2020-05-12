@@ -7,3 +7,19 @@
 ![vulnerabilities](https://img.shields.io/snyk/vulnerabilities/github/spiniza/cyber-proxy)
 ![Repo-size](https://img.shields.io/github/repo-size/harshinivarma/Covid-19-Dashboard-)
 [![license](https://img.shields.io/github/license/spiniza/cyber-proxy.svg?style=flat-square)](https://github.com/spiniza/cyber-proxy/blob/master/LICENSE)
+
+
+## Documentation
+
+### Prerequisites
+
+- [Python](https://www.python.org/downloads)
+
+## Discussion
+
+* Discuss Proxy tool on our [forums](https://cyberevil.me/)
+* Chat about Cyber-Proxy on Discord with our Cyberevil team -- [instructions for joining](https://discord.gg/nDEZpwS)
+
+## License
+
+[MIT](https://github.com/spiniza/cyber-proxy/blob/master/LICENSE.md)
