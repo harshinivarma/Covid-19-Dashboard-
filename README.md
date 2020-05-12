@@ -17,8 +17,8 @@
 
 ## Discussion
 
-* Discuss Proxy tool on our [forums](https://cyberevil.me/)
-* Chat about Cyber-Proxy on Discord with our Cyberevil team -- [instructions for joining](https://discord.gg/nDEZpwS)
+* Discuss  on our [forums]()
+* Chat about 
 
 ## License
 
