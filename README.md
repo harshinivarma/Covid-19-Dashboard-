@@ -5,7 +5,7 @@
 [![GitHub forks](https://img.shields.io/github/forks/harshinivarma/Covid-19-Dashboard-)](https://github.com/harshinivarma/Covid-19-Dashboard-/network)
 ![Repo-size](https://img.shields.io/github/repo-size/harshinivarma/Covid-19-Dashboard-)
 [![license](https://img.shields.io/github/license/harshinivarma/Covid-19-Dashboard-.svg?style=flat-square)](https://github.com/spiniza/cyber-proxy/blob/master/LICENSE)
-
+[![Github All Releases](https://img.shields.io/github/downloads/harshinivarma/Covid-19-Dashboard-Application/total.svg)]()
 
 ## Documentation
 
