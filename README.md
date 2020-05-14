@@ -6,10 +6,11 @@
 ![Repo-size](https://img.shields.io/github/repo-size/harshinivarma/Covid-19-Dashboard-)
 [![license](https://img.shields.io/github/license/harshinivarma/Covid-19-Dashboard-.svg?style=flat-square)](https://github.com/spiniza/cyber-proxy/blob/master/LICENSE)
 [![Github All Releases](https://img.shields.io/github/downloads/harshinivarma/Covid-19-Dashboard-Application/total.svg)]()
+[![Release](https://img.shields.io/github/v/release/harshinivarma/Covid-19-Dashboard-Application?color=2185d0&style=flat-square)](https://github.com/harshinivarma/Covid-19-Dashboard-Application/releases)
 
 ## Documentation
 
-### Prerequisites
+### Application Backend
 
 - [Python](https://www.python.org/downloads)
 
